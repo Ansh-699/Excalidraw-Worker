@@ -1,5 +1,5 @@
 export default {
   fetch(request, env) {
-    return env.ASSETS.fetch(request);
+    return (env as any).ASSETS.fetch(request);
   },
 } satisfies ExportedHandler<Env>;

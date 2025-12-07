@@ -10,7 +10,8 @@ const useBufferedWebSocket = (
   const socketRef = useRef<WebSocket | null>(null);
 
   useEffect(() => {
-    socketRef.current = new WebSocket(`ws://localhost:8787/api/ws/${id}`);
+    const wsUrl = import.meta.env.VITE_WS_URL || "ws://localhost:8787";
+    socketRef.current = new WebSocket(`${wsUrl}/api/ws/${id}`);
 
     const socket = socketRef.current;
 
