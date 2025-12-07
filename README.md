@@ -1,7 +1,5 @@
 # Excalidraw Multi-User App
 
-[![Watch the demo video](https://img.youtube.com/vi/FgWVoryZ8PU/0.jpg)](https://youtu.be/FgWVoryZ8PU?si=XbUy-88CP2OI3psK)
-
 ## Project Overview
 
 This project is a real-time collaborative drawing application built with Excalidraw that allows multiple users to draw together simultaneously. The application leverages WebSockets for bidirectional communication, enabling users to see each other's cursor movements and drawing changes in real-time without page refreshes.
