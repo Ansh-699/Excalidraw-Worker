@@ -1,0 +1,9 @@
+{
+  "name": "npm-ts-workspaces-example",
+  "private": true,
+  "scripts": {},
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}
