@@ -4,12 +4,19 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/hooks/useGSAP";
 import hourglassAnimation from "@/assets/Time Hourglass/animations/12345.json";
 import Lottie from "lottie-react";
+import { useNavigate } from "@tanstack/react-router";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const CTA = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  const handleStartDrawing = () => {
+    const roomId = Math.random().toString(36).substring(2, 9);
+    navigate({ to: "/excalidraw/$id", params: { id: roomId } });
+  };
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -49,10 +56,10 @@ const CTA = () => {
     <section ref={sectionRef} className="py-32 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-background to-background" />
-      
+
       {/* Decorative Elements */}
-      <div className="float-element absolute top-20 left-[10%] w-24 h-24 border border-primary/30 rotate-45" 
-        style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }} 
+      <div className="float-element absolute top-20 left-[10%] w-24 h-24 border border-primary/30 rotate-45"
+        style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}
       />
       <div className="float-element absolute bottom-20 right-[10%] w-32 h-32 border border-accent/30"
         style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}
@@ -84,7 +91,7 @@ const CTA = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button variant="hero" size="xl" className="group min-w-[220px]">
+            <Button variant="hero" size="xl" className="group min-w-[220px]" onClick={handleStartDrawing}>
               Get Started Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>

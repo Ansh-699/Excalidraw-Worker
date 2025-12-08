@@ -2,10 +2,17 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Pencil, Menu, X } from "lucide-react";
 import { gsap } from "@/hooks/useGSAP";
+import { useNavigate } from "@tanstack/react-router";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const navigate = useNavigate();
+
+  const handleStartDrawing = () => {
+    const roomId = Math.random().toString(36).substring(2, 9);
+    navigate({ to: "/excalidraw/$id", params: { id: roomId } });
+  };
 
   useEffect(() => {
     if (!navRef.current) return;
@@ -26,7 +33,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-3 group cursor-pointer">
-            <div 
+            <div
               className="w-10 h-10 bg-primary flex items-center justify-center shadow-lg glow-primary transition-all duration-300 group-hover:shadow-xl"
               style={{
                 clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))",
@@ -54,11 +61,11 @@ const Navbar = () => {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
             {/* <Button variant="ghost" className="tracking-wide">Sign in</Button> */}
-            <Button variant="default" className="tracking-wide">Start Drawing</Button>
+            <Button variant="default" className="tracking-wide" onClick={handleStartDrawing}>Start Drawing</Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden p-2 text-foreground"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -82,7 +89,7 @@ const Navbar = () => {
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
                 <Button variant="ghost" className="justify-start tracking-wide">Sign in</Button>
-                <Button variant="default" className="tracking-wide">Start Drawing</Button>
+                <Button variant="default" className="tracking-wide" onClick={handleStartDrawing}>Start Drawing</Button>
               </div>
             </div>
           </div>
