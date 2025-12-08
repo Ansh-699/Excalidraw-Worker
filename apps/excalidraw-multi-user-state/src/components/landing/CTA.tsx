@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/hooks/useGSAP";
+import hourglassAnimation from "@/assets/Time Hourglass/animations/12345.json";
+import Lottie from "lottie-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,7 +67,7 @@ const CTA = () => {
         >
           {/* Icon with glow */}
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent mb-10 shadow-2xl glow-primary animate-pulse-glow">
-            <Sparkles className="w-10 h-10 text-primary-foreground" />
+            <Lottie animationData={hourglassAnimation} loop={true} className="w-50 h-50" />
           </div>
 
           {/* Heading */}
