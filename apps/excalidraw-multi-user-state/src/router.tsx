@@ -6,10 +6,12 @@ import {
 } from "@tanstack/react-router";
 
 import ExcalidrawComponent from "./pages/Excalidraw";
+import Index from "./pages/Index";
 
 // Define the root route
 const rootRoute = createRootRoute({
   component: () => <Outlet />,
+  notFoundComponent: () => <div className="p-4 text-center">Page Not Found</div>,
 });
 
 const excalidrawRoute = createRoute({
@@ -21,29 +23,7 @@ const excalidrawRoute = createRoute({
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
-  component: () => (
-    <div style={{ padding: "20px", fontFamily: "system-ui" }}>
-      <h1>Excalidraw Multi-User</h1>
-      <p>Enter a room ID to start drawing:</p>
-      <button
-        onClick={() => {
-          const randomId = Math.random().toString(36).substring(7);
-          window.location.href = `/excalidraw/${randomId}`;
-        }}
-        style={{
-          padding: "10px 20px",
-          fontSize: "16px",
-          cursor: "pointer",
-          backgroundColor: "#007bff",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-        }}
-      >
-        Create New Room
-      </button>
-    </div>
-  ),
+  component: Index,
 });
 
 // Define route tree
