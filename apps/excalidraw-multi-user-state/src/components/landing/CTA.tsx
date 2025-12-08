@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/hooks/useGSAP";
 import hourglassAnimation from "@/assets/Time Hourglass/animations/12345.json";
 import Lottie from "lottie-react";

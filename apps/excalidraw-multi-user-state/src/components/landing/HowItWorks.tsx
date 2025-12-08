@@ -1,5 +1,4 @@
 import { Timeline } from "@/components/ui/timeline";
-import { Users } from "lucide-react";
 import Lottie from "lottie-react";
 import penAnimation from "@/assets/Pen draw(1)/animations/b85f0341-e926-4b35-a44d-cf161d35f99c.json";
 import shareAnimation from "@/assets/Share(1)/animations/12345.json";

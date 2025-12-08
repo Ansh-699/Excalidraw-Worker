@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Pencil, Menu, X } from "lucide-react";
 import { gsap } from "@/hooks/useGSAP";
 import { useNavigate } from "@tanstack/react-router";
+import sketchAnimation from "@/assets/NOT MY ANIMATION/animations/eb66bf9c-8885-47b0-8986-fd7760f80fae.json";
+import Lottie from "lottie-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +41,7 @@ const Navbar = () => {
                 clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))",
               }}
             >
-              <Pencil className="w-5 h-5 text-primary-foreground" />
+              <Lottie animationData={sketchAnimation} loop={true} className="w-15 h-15" />
             </div>
             <span className="text-xl font-bold text-foreground tracking-wide">Sketchflow</span>
           </div>
